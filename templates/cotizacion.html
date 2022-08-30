@@ -1,0 +1,72 @@
+{% include 'header.html'%}
+
+{% block content %}
+<figure class="text-center">
+    <H1 class="text-danger">Cotizacion de Producto</H1>
+
+    <form action="cotizacion" method="post" class="text-start">
+        <!--Nombre-->
+        <div class="form-group">
+            {{ form.nombre.label }}
+
+            {{ form.nombre(class_="form-control") }}
+
+            {% for error in form.nombre.errors %}
+            <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <!--Apellido-->
+        <div class="form-group">
+            {{ form.apellido.label }}
+
+            {{ form.apellido(class_="form-control") }}
+
+            {% for error in form.apellido.errors %}
+            <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+        
+        <!--Direccion-->
+        <div class="form-group">
+            {{ form.direccion.label }}
+
+            {{ form.direccion(class_="form-control", cols="20", rows="5") }}
+
+            {% for error in form.direccion.errors %}
+            <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <!--Telefono-->
+        <div class="form-group">
+            {{ form.tel.label }}
+
+            {{ form.tel(class_="form-control") }}
+
+            {% for error in form.tel.errors %}
+            <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+        
+        <!--Cotizacion-->
+        <div class="form-group">
+            {{ form.cotizacion.label }}
+            
+            {{ form.cotizacion(class_="form-control", cols="20", rows="5") }}
+
+            {% for error in form.cotizacion.errors %}
+            <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <hr>
+        {{ form.hidden_tag() }}
+
+        <div class="d-grid gap-2">
+            <button type="button" class="btn btn-outline-primary">Enviar Cotizacion</button>
+        </div>
+    </form>
+</figure>
+{% endblock %}
+{% include'footer.html' %}
